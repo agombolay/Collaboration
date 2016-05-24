@@ -13,8 +13,8 @@ while getopts "i:b:d:h" opt;
 do
     case $opt in
         i ) fastq=($OPTARG) ;;
-	      b ) index=$OPTARG ;;
-	      d ) directory=$OPTARG ;;
+	b ) index=$OPTARG ;;
+	d ) directory=$OPTARG ;;
         h ) usage ;;
     esac
 done
