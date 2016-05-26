@@ -20,7 +20,7 @@ done
 
 if [ "$1" == "-h" ];
 then
-        exit
+	exit
 fi
 
 #VARIABLE SPECIFICATION
@@ -44,13 +44,13 @@ complement="$output/$(basename $BED .bed).complement.bed"
 
 for strand in $strands; do
 
-    awk -v strand=$strand '$6 == strand' < $BED |
+	awk -v strand=$strand '$6 == strand' < $BED |
 	
-		bedtools sort -i - |
+	bedtools sort -i - |
 
-		bedtools merge -i - |
+	bedtools merge -i - |
 		
-		awk -v strand=$strand 'BEGIN {OFS="\t"} {print $0, ".", ".", strand}'
+	awk -v strand=$strand 'BEGIN {OFS="\t"} {print $0, ".", ".", strand}'
 
 done | bedtools sort -i - > $genes
 
