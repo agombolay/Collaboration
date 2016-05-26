@@ -25,8 +25,6 @@ then
         exit
 fi
 
-path=/projects/home/agombolay3/.local/lib/python2.7/site-packages/umitools-2.1.1-py2.7.egg/umitools/
-
 for samples in ${fastq[@]};
 do
 	
@@ -59,7 +57,7 @@ do
 
 	BED=$output/$samples.bed.gz
 
-	python2.7 $path/umitools.py trim $input $UMI | gzip -c > $umiTrimmed
+	umitools.py trim $input $UMI | gzip -c > $umiTrimmed
 
 	zcat $umiTrimmed | bowtie -m 1 --sam $index - 2> $statistics 1> $intermediateSAM
 
@@ -67,6 +65,6 @@ do
 
 	samtools sort $intermediateBAM > $sortedBAM
 
-	python2.7 $path/umitools.py rmdup $sortedBAM $finalBAM | gzip -c > $BED
+	umitools.py rmdup $sortedBAM $finalBAM | gzip -c > $BED
 
 done
