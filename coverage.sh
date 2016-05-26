@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 #Author: Alli Gombolay
 
-#COMMAND LINE OPTIONS
-
-#Name of the program (1_alignment.sh)
 program=$0
 
-#Usage statement of the program
 function usage () {
         echo "Usage: $program [-i] 'sample1 etc.' [-r] 'reference genome' [-d] 'Ribose-seq directory' [-h]
           -i Sample names of input BAM files (i.e, sample1 for sample1.bam)
@@ -14,21 +10,16 @@ function usage () {
           -d Location of user's local Ribose-seq directory"
 }
 
-#Use getopts function to create the command-line options ([-i], [-r], [-d], and [-h])
 while getopts "i:r:d:h" opt;
 do
     case $opt in
-        #Specify input as arrays to allow multiple input arguments
         i ) names=($OPTARG) ;;
-	#Specify input as variable to allow only one input argument
 	r ) reference=$OPTARG ;;
 	d ) directory=$OPTARG ;;
-        #If user specifies [-h], print usage statement
         h ) usage ;;
     esac
 done
 
-#Exit program if user specifies [-h]
 if [ "$1" == "-h" ];
 then
         exit
