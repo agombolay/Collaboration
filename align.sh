@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#Author: Alli Gombolay
 
 program=$0
 
