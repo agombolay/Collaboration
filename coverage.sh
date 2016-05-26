@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
-
 #Author: Alli Gombolay
-#This script calculates the genome coverage based on the alignment results from 1_alignment.sh
-#Adapted from Jay Hesselberth's code located at https://github.com/hesselberthlab/modmap/tree/snake
 
 #COMMAND LINE OPTIONS
 
