@@ -56,11 +56,3 @@ done | bedtools sort -i - > $genes
 
 bedtools complement -i $genes -g $chromosomeSizes | bedtools sort -i - |
 awk 'BEGIN {OFS="\t"} {print $0, ".", ".", "."}' > $complement
-
-grep '^chrM' $genes > "$output/$(basename $genes .bed).mito.bed"
-
-grep '^chrM' $complement > "$output/$(basename $complement .bed).mito.bed"
-
-grep -v '^chrM' $genes | grep -v '^2micron' > "$output/$(basename $genes .bed).nuc.bed"
-
-grep -v '^chrM' $complement | grep -v '^2micron' > "$output/$(basename $complement .bed).nuc.bed"
