@@ -27,9 +27,9 @@ fi
 # Mononucleotides, dinucleotides, and trinucleotides
 sizes="1 2 3"
 
-modes=("all" "only-mitochondria" "no-mitochondria" "only-2micron")
+modes=("all")
 
-arguments=("" "--only-chrom chrM" "--ignore-chrom chrM" "--only-chrom 2micron")
+arguments=("")
 
 input=$directory/ribose-seq/results/$samples/alignment
 
@@ -60,15 +60,8 @@ do
             rm -f $tables
         fi
 
-        if [[ $mode == "only-mitochondria" ]];
+        if [[ $mode == "all" ]];
         then
-            BackgroundFrequencies="$directory/ribose-seq/results/backgroundNucleotideFrequencies/$reference.chrM.nucleotide.frequencies.tab"
-        
-        elif [[ $mode == "only-2micron" ]];
-        then
-            BackgroundFrequencies="$directory/ribose-seq/results/backgroundNucleotideFrequencies/$reference.2micron.nucleotide.frequencies.tab"
-        
-        else
             BackgroundFrequencies="$directory/ribose-seq/results/backgroundNucleotideFrequencies/$reference.genome.nucleotide.frequencies.tab"
         fi
 
@@ -76,8 +69,7 @@ do
         for size in $sizes;
         do
             python2.7 calculateNucleotideFrequencies.py $BAM $FASTA --verbose --region-size $size $arguments --revcomp-strand \
-            --background-freq-table $BackgroundFrequencies --offset-min $offset_minimum --offset-max $offset_maximum \
-            >> $tables
+            --background-freq-table $BackgroundFrequencies --offset-min $offset_minimum --offset-max $offset_maximum >> $tables
         done
     
 done
