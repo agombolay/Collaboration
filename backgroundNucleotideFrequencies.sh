@@ -33,4 +33,4 @@ then
 fi
 
 genome="$output/$reference.genome.nucleotide.frequencies.tab"
-python2.7 5_backgroundNucleotideFrequencies.py $FASTA --region-size-minimum 1 --region-size-maximum 3 --verbose > $genome
+python2.7 backgroundNucleotideFrequencies.py $FASTA --region-size-minimum 1 --region-size-maximum 3 --verbose > $genome
