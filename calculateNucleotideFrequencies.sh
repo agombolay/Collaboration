@@ -75,7 +75,7 @@ do
         #Signals need to be reverse complemented since sequence is reverse complement of the captured strand
         for size in $sizes;
         do
-            calculateNucleotideFrequencies.py $BAM $FASTA --verbose --region-size $size $arguments --revcomp-strand \
+            python2.7 calculateNucleotideFrequencies.py $BAM $FASTA --verbose --region-size $size $arguments --revcomp-strand \
             --background-freq-table $BackgroundFrequencies --offset-min $offset_minimum --offset-max $offset_maximum \
             >> $tables
         done
