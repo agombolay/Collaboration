@@ -12,7 +12,7 @@ function usage () {
 while getopts "i:d:h" opt;
 do
     case $opt in
-        i ) samples=($OPTARG) ;;
+    	i ) samples=($OPTARG) ;;
 	d ) directory=$OPTARG ;;
     	h ) usage ;;
     esac
