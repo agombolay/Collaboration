@@ -33,23 +33,23 @@ output="$directory/ribose-seq/results/$samples/plots/nucleotideFrequencies"
 
 if [[ ! -d $output ]];
 then
-  mkdir -p $output
+	mkdir -p $output
 fi
 
 for index in ${!modes[@]};
 do
 
-  mode=${modes[$index]}
+	mode=${modes[$index]}
 
-  for value in ${offset_values[@]};
-  do
+	for value in ${offset_values[@]};
+	do
     
-    sampleID="$samples.subset-$mode"
+		sampleID="$samples.subset-$mode"
     
-    tables="$input/$samples.$mode.nucleotideFrequencies.tab"
+		tables="$input/$samples.$mode.nucleotideFrequencies.tab"
     
-    Rscript 6_plotNucleotideFrequencies.R -n "$sampleID" -d $output --offsetmax $value $tables
+		Rscript plotNucleotideFrequencies.R -n "$sampleID" -d $output --offsetmax $value $tables
     
-  done
+	done
 
 done
