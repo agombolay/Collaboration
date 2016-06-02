@@ -29,7 +29,7 @@ output="$directory/ribose-seq/results/backgroundNucleotideFrequencies"
 
 if [[ ! -d $output ]];
 then
-  mkdir $output
+	mkdir $output
 fi
 
 genome="$output/$reference.genome.nucleotide.frequencies.tab"
