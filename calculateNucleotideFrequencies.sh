@@ -36,7 +36,7 @@ input=$directory/ribose-seq/results/$samples/alignment
 output=$directory/ribose-seq/results/$samples/nucleotideFrequencies
 
 if [[ ! -d $output ]]; then
-    mkdir -p $output
+	mkdir -p $output
 fi
 
 offset_minimum=-100
