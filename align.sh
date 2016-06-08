@@ -61,7 +61,7 @@ do
 
 	zcat $umiTrimmed | bowtie -m 1 --sam $index - 2> $statistics 1> $intermediateSAM
 
-	samtools view -bS $intermediateSAM > $intermediateBAM
+	samtools view -ShuF4 $intermediateSAM > $intermediateBAM
 
 	samtools sort $intermediateBAM > $sortedBAM
 
